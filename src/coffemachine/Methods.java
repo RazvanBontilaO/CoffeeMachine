@@ -5,9 +5,10 @@ public class Methods {
         System.out.println( "You have: " + amount);
     }
 
-    public static void decrementAmount(float amount, float price) {
-        amount -= price;
+    public static void refill(int sugar , int milk) {
+        System.out.println( "Sugar: " + sugar + " ml" + " Milk: " + milk + " ml");
     }
+
 
 }
 

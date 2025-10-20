@@ -2,6 +2,8 @@ package coffemachine;
 
 import java.util.Scanner;
 import static coffemachine.Methods.showAmount;
+import static coffemachine.Methods.refill;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +17,11 @@ public class Main {
         System.out.println("_________________________________");
 
         Scanner scanner = new Scanner(System.in);
+        int sugar = 20;
+        int milk = 20;
+        refill(sugar, milk);
         System.out.println("Please enter amount: ");
+        String password ="CoffeeMachine";
         float amount = scanner.nextFloat();
         showAmount(amount);
 
@@ -32,14 +38,20 @@ public class Main {
                     switch (drink.toLowerCase()) {
                         case "latte" -> {
                             amount -= 2;
+                            sugar = sugar - 5;
+                            milk = milk - 5;
                             showAmount(amount);
                         }
                         case "cappuccino" -> {
                             amount -= 1;
+                            sugar = sugar - 5;
+                            milk = milk - 5;
                             showAmount(amount);
                         }
                         case "americano" -> {
                             amount -= 1.5f;
+                            sugar = sugar - 5;
+                            milk = milk - 5;
                             showAmount(amount);
                         }
                         default -> System.out.println("Wrong input");
@@ -76,6 +88,13 @@ public class Main {
                     case 4:
                         System.out.println("Exiting...");
                         work = false;
+                case 5:
+                    String pass = scanner.next();
+                    if (pass.equals(password)) {
+                        refill(20, 20);
+                        sugar = 20;
+                        milk = 20;
+                    }
                 default:
                     System.out.println("Wrong input");
                     break;
@@ -85,6 +104,14 @@ public class Main {
                 System.out.println("Sorry, you are out of money");
                 work = false;
             }
+
+            if (milk == 0 || sugar == 0)
+            {
+                System.out.println("Sorry, you are out of sugar or milk");
+                System.out.println("You have to refill your machine");
+                System.out.println("Please log in as administrator");
+            }
         }
+        scanner.close();
     }
 }
