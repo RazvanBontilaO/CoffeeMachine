@@ -21,8 +21,8 @@ The project is divided into **five stages**, each introducing new concepts step 
 
 ## 🧩 Features
 
-- ☕ Buy coffee (espresso, latte, cappuccino)
-- 🧃 Fill machine supplies (water, milk, beans, cups)
+- ☕ Buy coffee (espresso, latte, americano)
+- 🧃 Fill machine supplies (sugar, milk)
 - 💵 Take money from the machine
 - 📊 Display remaining resources
 - 🧠 Validate if enough resources are available before making coffee
